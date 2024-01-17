@@ -1,0 +1,12 @@
+.wrapper {
+
+    &__media {
+        margin: 10px 0px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
