@@ -36,7 +36,6 @@ export class RsvpComponent implements OnInit {
       console.log(this.guests);
       if (this.guests.length > 0)
         this.filteredOptions = this.myControl.valueChanges.pipe(
-          startWith(''),
           map((value) => this._filter(value))
         );
     });

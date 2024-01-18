@@ -10,6 +10,14 @@ import { DataStoreService } from './data-store.service';
 export class AppComponent implements OnInit {
   seed: boolean = false
   guests: any[] = [];
+  images: string[] = [
+    '../assets/1.png',
+    '../assets/2.png',
+    '../assets/3.png',
+  ];
+  currentImageIndex = 0;
+  imageChangeInterval = 3000; // Time in milliseconds
+
   constructor(
     private dataService: DataService,
     private dataStore: DataStoreService
@@ -26,6 +34,13 @@ export class AppComponent implements OnInit {
       //   console.log('res', res)
       // })
     })
+    setInterval(() => {
+      this.currentImageIndex++;
+      // Reset the index to show the first image after the last one
+      if (this.currentImageIndex === this.images.length) {
+        this.currentImageIndex = 0;
+      }
+    }, this.imageChangeInterval);
   }
 
   addNewGuest() {

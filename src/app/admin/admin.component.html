@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <div>
+    <button mat-raised-button (click)="filterConfirmed()">
+      Show only confirmd
+    </button>
+    <button mat-button (click)="reset()">Reset</button>
+  </div>
+  <div class="wrapper__search">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search" [formControl]="searchKey" />
+    </mat-form-field>
+    <p>Confirmed: {{ getConfirmedNumber() }}</p>
+  </div>
+
+  <table mat-table [dataSource]="guests">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="plus">
+      <th mat-header-cell *matHeaderCellDef>Plus</th>
+      <td mat-cell *matCellDef="let element">{{ element.withPlus }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="isConfirmed">
+      <th mat-header-cell *matHeaderCellDef>Confirmed</th>
+      <td mat-cell *matCellDef="let element">{{ element.isConfirmed }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button>edit</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

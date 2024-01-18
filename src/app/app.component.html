@@ -3,8 +3,14 @@
     <h1>T & A</h1>
   </div>
   <div class="wrapper__media">
-    <img src="../assets/1.png" alt="" />
+    <div
+      *ngFor="let image of images; let i = index"
+      [hidden]="currentImageIndex !== i"
+    >
+      <img [src]="image" alt="" />
+    </div>
   </div>
+
   <div class="wrapper__header">
     <h1>#ThunderStruckLove</h1>
   </div>
@@ -24,5 +30,13 @@
   </div>
   <div class="wrapper__main">
     <router-outlet></router-outlet>
+  </div>
+  <div class="wrapper__footer">
+    <small
+      >This website was designed by the Bride and developed by the Groom</small
+    >
+    <small> Merging two talents, just like our hearts 🖤🤍 </small>
+    <br />
+    <small style="font-size: 10px;">Contact us for Web Design and Development Services 😉</small>
   </div>
 </div>

@@ -19,8 +19,20 @@ p {
             display: block;
         }
 
+
+
         @include desktop {
+            max-width: 100%; // or 100% if you want it to be full-width
+            margin: auto;
+            overflow: hidden;
+            position: relative;
             display: initial;
+
+            img {
+                width: 100%;
+                display: block; // Remove extra space below the image
+                transition: opacity 1s ease-in-out; // Fade transition for the images
+            }
         }
     }
 

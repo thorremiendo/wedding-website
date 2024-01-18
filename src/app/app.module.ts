@@ -20,6 +20,9 @@ import { WhatToWearComponent } from './what-to-wear/what-to-wear.component';
 import { OurCrewComponent } from './our-crew/our-crew.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AdminComponent } from './admin/admin.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,8 +34,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     OurStoryComponent,
     WhatToWearComponent,
     OurCrewComponent,
+    AdminComponent,
   ],
   imports: [
+    MatButtonModule,
+    MatTableModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     ReactiveFormsModule,

@@ -7,6 +7,7 @@ import { FaqComponent } from './faq/faq.component';
 import { OurStoryComponent } from './our-story/our-story.component';
 import { WhatToWearComponent } from './what-to-wear/what-to-wear.component';
 import { OurCrewComponent } from './our-crew/our-crew.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'our-crew',
     component: OurCrewComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
   }
 ];
 

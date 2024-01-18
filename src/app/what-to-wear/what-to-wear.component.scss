@@ -1,0 +1,12 @@
+.wrapper {
+    min-height: 50vh;
+
+    &__media {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

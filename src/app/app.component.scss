@@ -46,12 +46,15 @@ h1 {
     }
 
     &__media {
-        margin: 10px 0px;
+        max-width: 100%; // or 100% if you want it to be full-width
+        margin: auto;
+        overflow: hidden;
+        position: relative;
 
         img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+            width: 100%;
+            display: block; // Remove extra space below the image
+            transition: opacity 1s ease-in-out; // Fade transition for the images
         }
 
         @include desktop {
@@ -138,6 +141,17 @@ h1 {
             padding: 20px 100px;
         }
 
+    }
+
+    &__footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #C1C1BF; // Feel free to change the color
+        color: #202222;
+        text-align: center;
+        padding: 6px;
     }
 }
 
