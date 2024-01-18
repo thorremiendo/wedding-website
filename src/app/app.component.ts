@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
       // this.dataStore.guests$.subscribe(res => {
       //   console.log('res', res)
       // })
+    }, err => {
+      console.log(err)
     })
     setInterval(() => {
       this.currentImageIndex++;
