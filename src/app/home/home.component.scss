@@ -1,12 +1,163 @@
-.wrapper {
+@import '../../styles/breakpoints';
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
+
+
+h1,
+p {
+    margin: 0;
+}
+
+.wrapper {
     &__media {
+        display: none;
         margin: 10px 0px;
 
         img {
             max-width: 100%;
             height: auto;
             display: block;
+        }
+
+        @include desktop {
+            display: initial;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .timer {
+            margin: 20px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 200px;
+
+            @include desktop {
+                margin: 40px 0px;
+                width: 100%;
+            }
+
+            &__left {
+                flex: 1;
+                text-align: right;
+
+                h1 {
+                    font-size: 40px;
+                }
+
+                @include desktop {
+                    h1 {
+                        font-size: 80px;
+                    }
+                }
+            }
+
+            &__right {
+                flex: 1;
+                text-align: left;
+
+                @include desktop {
+                    p {
+                        margin-bottom: 14px;
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            &__divider {
+                width: 2px;
+                height: 80px;
+                background-color: #8585848f;
+                margin: 0 20px;
+            }
+        }
+
+        .rsvp {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .details {
+            margin: 50px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #c1c1bfdc;
+
+            h1 {
+                font-size: 20px;
+                letter-spacing: 0.2em;
+            }
+
+            p {
+                margin: 4px 0;
+                letter-spacing: 0.3em;
+                font-size: 12px;
+            }
+
+            @include desktop {
+                margin: 80px 0;
+
+                h1 {
+                    margin-bottom: 8px;
+                    font-size: 30px;
+                    letter-spacing: 0.4em;
+                }
+
+                p {
+                    margin: 8px 0;
+                    font-size: 18px;
+                    letter-spacing: 0.4em;
+                }
+            }
+
+            &__address {
+                width: 70vw;
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                @include desktop {
+                    width: 600px;
+                }
+
+                .item {
+                    width: 100%;
+                    display: flex;
+                    border-top: 0.5px solid #8585848f;
+                    border-bottom: 0.5px solid #8585848f;
+                    padding: 20px;
+                    color: #c1c1bfdc;
+                    font-family: 'Libre Baskerville', serif;
+
+                    @include desktop {
+                        padding: 40px;
+
+                        div {
+                            font-size: 18px;
+                        }
+                    }
+
+                    div:nth-of-type(1) {
+                        flex: 2;
+                        letter-spacing: 0.2em;
+                    }
+
+                    div:nth-of-type(2) {
+                        flex: 2;
+                        letter-spacing: 0.2em;
+                    }
+
+                }
+            }
+
         }
     }
 }

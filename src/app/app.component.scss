@@ -1,18 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import '../styles/breakpoints';
+
+h1 {
+    margin: 0;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #202222;
+    flex-grow: 1;
+    padding: 20px 0px;
+    min-height: 100%;
+
+    &__hero {
+        h1 {
+            font-size: 14px;
+        }
+
+        @include desktop {
+            display: none;
+        }
+    }
 
     &__header {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 40vh;
+        height: 15vh;
 
         h1 {
-            font-size: 80px;
+            font-size: 30px;
             font-style: italic;
+        }
+
+        @include desktop {
+            height: 30vh;
+
+            h1 {
+                font-size: 80px;
+            }
+        }
+    }
+
+    &__media {
+        margin: 10px 0px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @include desktop {
+            display: none;
         }
     }
 
@@ -22,15 +65,28 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding: 0 40px;
 
         h1 {
             letter-spacing: 0.3em;
-            font-size: 34px;
+            font-size: 20px;
         }
 
         p {
             margin-top: 20px;
             letter-spacing: 0.2em;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        @include desktop {
+            h1 {
+                font-size: 34px;
+            }
+
+            p {
+                font-size: 12px;
+            }
         }
     }
 
@@ -38,26 +94,50 @@
         margin: 20px 0;
 
         ul {
-            list-style: none;
-            /* Removes default list styling */
-            padding: 0;
-            margin: 0;
-            display: flex;
-            /* Use Flexbox to lay out children in a row */
-            align-items: center;
-            /* Align items vertically in the center */
-            justify-content: space-between;
+            list-style: none; // Remove default list style
+            padding: 0; // Remove default padding
+            margin: 0; // Remove default margin
+            display: flex; // Use flexbox for the layout
+            flex-wrap: wrap; // Allow items to wrap to the next line
+            justify-content: space-between; // Distribute space between items
 
             li {
-                cursor: pointer;
+                margin-left: 10px;
+                flex: 1 1 auto; // Allow list items to grow and shrink as needed
+                text-align: center; // Center the text in each list item
                 padding: 10px;
                 letter-spacing: 0.15em;
+                cursor: pointer;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+
+
+        }
+
+        @include mobile {
+            ul {
+                li {
+                    margin-top: 10px;
+                    flex: 0 0 33%; // Each item takes up one-third of the container's width
+                    padding: 0px;
+                    letter-spacing: 0em;
+                }
             }
         }
+
     }
 
     &__main {
-        padding: 20px 100px;
+        height: 100%;
+        padding: 20px;
+
+        @include desktop {
+            padding: 20px 100px;
+        }
+
     }
 }
 
@@ -73,4 +153,9 @@
     height: 2px;
     width: 100%;
     background-color: currentColor;
+}
+
+.rsvp {
+    font-weight: bold;
+    border: 1px solid grey;
 }

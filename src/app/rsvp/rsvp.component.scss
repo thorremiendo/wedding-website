@@ -1,0 +1,56 @@
+@import '../../styles/breakpoints';
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: #C1C1BF;
+    }
+
+    mat-form-field {
+
+        .mat-hint,
+        input,
+        ::placeholder,
+        .mat-form-field-label {
+            color: #C1C1BF;
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Libre Baskerville', serif;
+    min-height: 20vh;
+
+    @include desktop {
+        min-height: 50vh;
+    }
+
+    mat-form-field {
+        width: 80vw;
+
+        @include desktop {
+            width: 300px;
+        }
+    }
+
+    p {
+        color: #c1c1bf !important;
+    }
+
+    .btn {
+        cursor: pointer;
+    }
+
+    &__note {
+        p {
+            text-align: center;
+        }
+
+        p:nth-of-type(2) {
+            border: 1px solid grey;
+            padding: 10px;
+        }
+    }
+}

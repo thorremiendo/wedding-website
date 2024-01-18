@@ -1,1 +1,45 @@
-<p>rsvp works!</p>
+<div class="wrapper" *ngIf="guests.length > 0">
+  <form class="example-form" *ngIf="!isConfirmed">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Enter your full name</mat-label>
+      <input
+        type="text"
+        placeholder="Select name"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let guest of filteredOptions | async"
+          [value]="guest.fullName"
+        >
+          {{ guest.fullName }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <p *ngIf="myControl.touched && !isGuest()">
+      Name not found, select name from the list.
+    </p>
+  </form>
+  <button
+    class="btn"
+    [disabled]="!isGuest()"
+    (click)="confirmAttendance()"
+    *ngIf="!isConfirmed"
+  >
+    CONFIRM MY ATTENDANCE
+  </button>
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+  <div *ngIf="isConfirmed && currentGuest" class="wrapper__note">
+    <p>
+      <strong>{{ currentGuest.fullName }}</strong
+      >, welcome aboard! Get ready to join the ranks of Earth's Mightiest Heroes
+      at the event. Remember, with great attendance comes great responsibility -
+      to party like a superhero! 🎉
+      <br />
+    </p>
+    <p>P.S. This event is exclusively for invited or RSVP'd guests.</p>
+  </div>
+</div>

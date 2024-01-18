@@ -1,6 +1,12 @@
 <div class="wrapper">
+  <div class="wrapper__hero">
+    <h1>T & A</h1>
+  </div>
+  <div class="wrapper__media">
+    <img src="../assets/1.png" alt="" />
+  </div>
   <div class="wrapper__header">
-    <h1>#WeddingHashtag</h1>
+    <h1>#ThunderStruckLove</h1>
   </div>
   <div class="wrapper__title">
     <h1>THOR & AIA</h1>
@@ -9,11 +15,14 @@
   <div class="wrapper__nav">
     <ul>
       <li routerLink="/home" routerLinkActive="active">Home</li>
+      <li routerLink="/our-story" routerLinkActive="active">Our Story</li>
+      <li routerLink="/faq" routerLinkActive="active">FAQs</li>
+      <li routerLink="/what-to-wear" routerLinkActive="active">What to wear</li>
       <li routerLink="/photos" routerLinkActive="active">Photos</li>
-      <li routerLink="/rsvp" routerLinkActive="active">RSVP</li>
+      <li routerLink="/rsvp" routerLinkActive="active" class="rsvp">RSVP</li>
     </ul>
   </div>
-</div>
-<div class="wrapper__main">
-  <router-outlet></router-outlet>
+  <div class="wrapper__main">
+    <router-outlet></router-outlet>
+  </div>
 </div>
