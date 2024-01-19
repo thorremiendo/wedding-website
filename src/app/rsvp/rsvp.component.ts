@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { DataService } from '../data.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-rsvp',
@@ -57,24 +58,40 @@ export class RsvpComponent implements OnInit {
   }
 
   confirmAttendance() {
-    this.isLoading = true;
-    const guest = this.guests.find(
-      (guest) => guest?.fullName === this.myControl.value
-    );
-    if (guest) {
-      this.dataService
-        .updateGuest(guest.id, true)
-        .then(() => {
-          console.log('Guest confirmed status updated successfully');
-          this.isLoading = false;
-          this.isConfirmed = true;
-          window.localStorage.setItem('isConfirmed', 'true');
-          window.localStorage.setItem('guest', JSON.stringify(guest));
-          this.ngOnInit()
-        })
-        .catch((error) => {
-          console.error('Error updating guest confirmed status:', error);
-        });
-    }
+    Swal.fire({
+      title: 'Confirmation',
+      showDenyButton: true,
+      showCancelButton: true,
+      text: 'Are you suuuureee?',
+      icon: 'info',
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.isLoading = true;
+        const guest = this.guests.find(
+          (guest) => guest?.fullName === this.myControl.value
+        );
+        if (guest) {
+          this.dataService
+            .updateGuest(guest.id, true)
+            .then(() => {
+              console.log('Guest confirmed status updated successfully');
+              this.isLoading = false;
+              this.isConfirmed = true;
+              window.localStorage.setItem('isConfirmed', 'true');
+              window.localStorage.setItem('guest', JSON.stringify(guest));
+              this.ngOnInit()
+              Swal.fire('Confirmation saved!', '', 'success')
+            })
+            .catch((error) => {
+              console.error('Error updating guest confirmed status:', error);
+            });
+        }
+      } else if (result.isDenied) {
+        Swal.fire('Confirmation not saved', '', 'info')
+      }
+    })
+
   }
 }
