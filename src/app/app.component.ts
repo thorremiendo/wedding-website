@@ -14,9 +14,9 @@ export class AppComponent implements OnInit {
   seed: boolean = false
   guests: any[] = [];
   images: string[] = [
-    '../assets/1.png',
-    '../assets/2.png',
-    '../assets/3.png',
+    '../assets/1.jpg',
+    '../assets/2.jpg',
+    '../assets/3.jpg',
   ];
   currentImageIndex = 0;
   imageChangeInterval = 3000; // Time in milliseconds
