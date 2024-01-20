@@ -1,4 +1,22 @@
 <div class="wrapper">
-    <p>COMING SOON!</p>
+  <div class="example-action-buttons mb-3">
+    <button mat-button (click)="accordion?.openAll()">Expand All</button>
+    <button mat-button (click)="accordion?.closeAll()">Collapse All</button>
   </div>
-  
+  <div class="wrapper__main">
+    <mat-accordion class="example-headers-align" multi>
+      <ng-container *ngFor="let item of list">
+        <mat-expansion-panel class="mb-1">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <p class="question">{{ item.question }}</p></mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <p class="answer">
+            {{ item.answer }}
+          </p>
+        </mat-expansion-panel>
+      </ng-container>
+    </mat-accordion>
+  </div>
+</div>

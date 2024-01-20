@@ -60,12 +60,10 @@ export class RsvpComponent implements OnInit {
   confirmAttendance() {
     Swal.fire({
       title: 'Confirmation',
-      showDenyButton: true,
       showCancelButton: true,
-      text: 'Are you suuuureee?',
+      text: 'Are you sure?',
       icon: 'info',
       confirmButtonText: 'Yes',
-      denyButtonText: 'No',
     }).then((result) => {
       if (result.isConfirmed) {
         this.isLoading = true;

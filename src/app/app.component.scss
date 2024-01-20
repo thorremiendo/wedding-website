@@ -135,10 +135,24 @@ h1 {
 
     &__main {
         height: 100%;
-        padding: 20px 0px 100px;
+        padding: 20px 0px;
 
         @include desktop {
             padding: 20px 100px;
+        }
+
+    }
+
+    &__logo {
+        margin-bottom: 50px;
+        img {
+            width: 100px;
+        }
+
+        @include desktop {
+            img {
+                width: 150px;
+            }
         }
 
     }

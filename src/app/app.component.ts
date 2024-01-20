@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataService } from './data.service';
 import { DataStoreService } from './data-store.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { DataStoreService } from './data-store.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  @ViewChild('wrapperMain', { static: true }) wrapperMain: ElementRef | undefined;
+
   seed: boolean = false
   guests: any[] = [];
   images: string[] = [
@@ -50,7 +53,19 @@ export class AppComponent implements OnInit {
     this.dataService.addGuest(newGuest);
   }
 
+  scrollToMain() {
+    // Option 1: Scroll to the `wrapper__main` element
+    if (this.wrapperMain && this.wrapperMain.nativeElement) {
+      this.wrapperMain.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }
 
+    // Option 2: Use `ViewportScroller` to scroll to the specific position
+    // const element = this.wrapperMain.nativeElement;
+    // const elementRect = element.getBoundingClientRect();
+    // const absoluteElementTop = elementRect.top + window.pageYOffset;
+    // const offset = 70; // Adjust as necessary for fixed header, etc.
+    // this.viewportScroller.scrollToPosition([0, absoluteElementTop - offset]);
+  }
 
 
 }

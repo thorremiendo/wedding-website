@@ -1,3 +1,31 @@
+@import '../../styles/breakpoints';
+
+
 .wrapper {
     min-height: 50vh;
+    text-align: center;
+
+    p {
+        font-size: 10px;
+
+        @include desktop {
+            font-size: 12px;
+        }
+    }
+
+    &__media {
+        max-width: 100%; // or 100% if you want it to be full-width
+        margin: auto;
+
+
+        img {
+            width: 100%;
+
+        }
+
+        // @include mobile {
+        //     display: none;
+        // }
+
+    }
 }

@@ -33,13 +33,21 @@
   <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
 
   <div *ngIf="isConfirmed && currentGuest" class="wrapper__note">
-    <p>
+    <p class="border">
       <strong>{{ currentGuest.fullName }}</strong
-      >, welcome aboard! Get ready to join the ranks of Earth's Mightiest Heroes
-      at the event. Remember, with great attendance comes great responsibility -
-      to party like a superhero! 🎉
+      >, welcome aboard! Remember, with great attendance comes great
+      responsibility - to party like a superhero! 🎉
       <br />
+      P.S. This event is exclusively for invited or RSVP'd guests.
     </p>
-    <p>P.S. This event is exclusively for invited or RSVP'd guests.</p>
+    <div class="gifts border">
+      <p>a note on gifts</p>
+      <p>
+        Your love, laughter, and company on our wedding is the greatest gift of
+        all. But if a gift is on your mind a monetary contribution would be
+        kind. It will help us more than words can say to celebrate our special
+        day.
+      </p>
+    </div>
   </div>
 </div>

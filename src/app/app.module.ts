@@ -23,6 +23,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AdminComponent } from './admin/admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
     MatInputModule,
     BrowserModule,
     MatProgressBarModule,
