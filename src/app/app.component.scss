@@ -93,6 +93,19 @@ h1 {
         }
     }
 
+    &__rsvp {
+        margin-top: 20px;
+
+        .rsvp-btn {
+            background-color: #C1C1BF;
+            padding: 10px 20px;
+            color: #202222;
+            border: none;
+            font-family: 'Libre Baskerville', serif !important;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+    }
+
     &__nav {
         margin: 20px 0;
 
@@ -202,4 +215,9 @@ h1 {
 .rsvp {
     font-weight: bold;
     border: 1px solid grey;
+    display: none;
+
+    @include desktop {
+        display: initial;
+    }
 }

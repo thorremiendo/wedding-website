@@ -1,5 +1,33 @@
+@import "../../styles/breakpoints";
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
 .wrapper {
     min-height: 50vh;
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        h1 {
+            font-family: 'Cedarville Cursive', cursive !important;
+        }
+
+        p {
+            font-size: 13px;
+        }
+
+        @include desktop {
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 16px;
+
+            }
+        }
+    }
 
     &__media {
         width: 100%;
@@ -7,6 +35,21 @@
         img {
             width: 100%;
             height: auto;
+        }
+
+        .desktop {
+            display: none;
+
+            @include desktop {
+                display: initial;
+            }
+        }
+
+        .mobile {
+
+            @include desktop {
+                display: none;
+            }
         }
     }
 }
