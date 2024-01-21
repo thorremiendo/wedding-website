@@ -20,7 +20,17 @@ export class AppComponent implements OnInit {
   ];
   currentImageIndex = 0;
   imageChangeInterval = 3000; // Time in milliseconds
-
+  center: google.maps.LatLngLiteral = { lat: 24.886, lng: -70.268 }; // Set your location
+  zoom = 15;
+  options: google.maps.MapOptions = {
+    mapTypeId: 'hybrid',
+    zoomControl: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    maxZoom: 15,
+    minZoom: 8,
+  };
+  
   constructor(
     private dataService: DataService,
     private dataStore: DataStoreService

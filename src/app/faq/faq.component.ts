@@ -19,10 +19,6 @@ export class FaqComponent implements OnInit {
         "answer": "We are having an 'unplugged ceremony', meaning we kindly ask that you refrain from taking photos or videos as we have professional photographers/videographers capturing these special moments. Feel free to take as many photos as you'd like during the reception!"
       },
       {
-        "question": "Are there any accommodations for out-of-town guests?",
-        "answer": "While we won't be providing accommodations for out-of-town guests, you can find a list of accommodations at visita.baguio.gov.ph. We recommend booking your accommodations early. If you need any further information or assistance, please feel free to reach out to us!"
-      },
-      {
         "question": "What should I wear?",
         "answer": "Please dress in black, white, or a combination of both to honor our black-and-white theme. No wearing of caps, t-shirts, jeans & slippers. We recommend bringing a jacket or a coat to stay comfortable throughout the night, especially as our venue is outdoors and it can get quite chilly in the evenings."
       },
@@ -35,7 +31,7 @@ export class FaqComponent implements OnInit {
         "answer": "Due to venue capacity, we are only able to accommodate those individuals explicitly named on the RSVP."
       },
       {
-        "question": "What is the RSVP deadline?",
+        "question": "When is the RSVP deadline?",
         "answer": "Please RSVP by February 19, 2024. You can do so through our website."
       },
       {

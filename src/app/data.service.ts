@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, doc, setDoc, addDoc, query, getDocs, where, updateDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, setDoc, addDoc, query, getDocs, where, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { Observable, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   guestRef
-  constructor(private firestore: Firestore,
+  constructor(private firestore: Firestore, private _snackBar: MatSnackBar,
     private http: HttpClient) {
     this.guestRef = collection(this.firestore, 'guests');
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 
   getGuests(): Observable<any[]> {
@@ -23,6 +28,7 @@ export class DataService {
     try {
       const docRef = await addDoc(guestsRef, guestData);
       console.log(`New document added with ID: ${docRef.id}`);
+      this.openSnackBar('Guest added successfully', 'Close');
     } catch (error) {
       console.error("Error adding document: ", error);
       throw error; // or handle error as needed
@@ -36,6 +42,18 @@ export class DataService {
       console.log(`Guest with ID: ${guestId} has been updated. Confirmed: ${confirmedStatus}`);
     } catch (error) {
       console.error("Error updating document: ", error);
+      throw error; // or handle error as needed
+    }
+  }
+
+  async deleteGuest(guestId: string) {
+    try {
+      const guestDocRef = doc(this.firestore, 'guests', guestId);
+      await deleteDoc(guestDocRef);
+      console.log(`Document with ID: ${guestId} deleted`);
+      this.openSnackBar('Guest deleted successfully', 'Close');
+    } catch (error) {
+      console.error("Error deleting document: ", error);
       throw error; // or handle error as needed
     }
   }
