@@ -40,7 +40,7 @@ const routes: Routes = [
     component: WhatToWearComponent
   },
   {
-    path: 'our-crew',
+    path: 'vips',
     component: OurCrewComponent
   },
   {
