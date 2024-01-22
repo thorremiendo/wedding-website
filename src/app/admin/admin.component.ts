@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
   displayedColumns: string[] = ['name', 'plus', 'isConfirmed', 'action'];
   searchKey = new FormControl('');
   isLocked: boolean = true
-  code: string = '510825'
+  code: string = '0000'
   guestName = new FormControl('')
 
   constructor(private dataStore: DataStoreService, private dataService: DataService) {
