@@ -14,6 +14,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-between">
+      <p>Total: {{ this.guests.length }}</p>
       <p>Confirmed: {{ getConfirmedNumber() }}</p>
       <div>
         <button mat-raised-button (click)="filterConfirmed()">
@@ -41,7 +42,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Action</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-button>edit</button>
+          <button mat-button (click)="confirmGuest(element.id)">confirm</button>
           <button mat-button color="accent" (click)="deleteGuest(element.id)">
             delete
           </button>

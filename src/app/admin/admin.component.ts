@@ -3,6 +3,7 @@ import { DataStoreService } from '../data-store.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DataService } from '../data.service';
 import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin',
@@ -17,7 +18,7 @@ export class AdminComponent implements OnInit {
   code: string = '0000'
   guestName = new FormControl('')
 
-  constructor(private dataStore: DataStoreService, private dataService: DataService) {
+  constructor(private dataStore: DataStoreService, private dataService: DataService, private snackBar: MatSnackBar) {
     this.searchKey.valueChanges.subscribe(key => {
       this.dataStore.guests$.subscribe(res => {
         console.log(this.guests, 'here')
@@ -29,6 +30,20 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.dataStore.guests$.subscribe(res => {
       this.guests = res
+      this.guests = res.sort((a, b) => {
+        // Split full names into arrays and pick the last element as the last name
+        const lastNameA = a.fullName.split(' ').pop();
+        const lastNameB = b.fullName.split(' ').pop();
+
+        // Compare last names
+        if (lastNameA < lastNameB) {
+          return -1;
+        }
+        if (lastNameA > lastNameB) {
+          return 1;
+        }
+        return 0;
+      });
     })
   }
 
@@ -44,6 +59,14 @@ export class AdminComponent implements OnInit {
 
   getConfirmedNumber() {
     return this.guests.filter(guest => guest.isConfirmed).length
+  }
+
+  confirmGuest(id: string) {
+    this.dataService.updateGuest(id, true).then(res => {
+      this.snackBar.open('Guest confirmed', 'Close', {
+        duration: 2000,
+      });
+    })
   }
 
   addNewGuest() {
